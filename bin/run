@@ -1,20 +1,20 @@
-if [ ! -d "$HOME/.dj/jars" ]; then
+if [ ! -d "$HOME/.dj" ]; then
 git --version 2>&1 > /dev/null
 GIT_IS_AVAILABLE=$?
 if [ $GIT_IS_AVAILABLE -eq 0 ]; then
 echo "Installing dj3 with git"
-pushd ~/.dj
-git init
-git remote add origin https://github.com/bmillare/dj3.git
-git fetch
-git reset origin/master
-git checkout -t origin/master -f
+pushd ~/
+git clone https://github.com/bmillare/dj3.git .dj
 popd
 else
 echo "Installing dj3 from zip"
-pushd ~/.dj
-curl https://github.com/bmillare/dj3/archive/master.zip | jar x
+mkdir -p ~/.dj.tmp
+pushd ~/.dj.tmp
+curl -O https://github.com/bmillare/dj3/archive/master.zip
+unzip master.zip
+mv dj3-master ~/.dj
 popd
+rm -rf ~/.dj.tmp
 fi
 mkdir -p ~/.dj/jars
 pushd ~/.dj/jars
