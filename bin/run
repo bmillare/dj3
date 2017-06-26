@@ -8,11 +8,13 @@ git init
 git remote add origin https://github.com/bmillare/dj3.git
 git fetch
 git reset origin/master
-git checkout -t origin/master
+git checkout -t origin/master -f
+cd -
 else
 echo "Installing dj3 from zip"
 cd ~/.dj
 curl https://github.com/bmillare/dj3/archive/master.zip | jar x
+cd -
 fi
 mkdir -p ~/.dj/jars
 cd ~/.dj/jars
