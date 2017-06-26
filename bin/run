@@ -24,4 +24,4 @@ curl -O 'http://repo1.maven.org/maven2/org/clojure/spec.alpha/0.1.123/spec.alpha
 curl -O 'http://repo1.maven.org/maven2/org/clojure/core.specs.alpha/0.1.10/core.specs.alpha-0.1.10.jar'
 popd
 fi
-java -cp $HOME/.dj/src:$HOME/.dj/jars/* clojure.main $@
+java -cp $HOME/.dj/src:$HOME/.dj/usr/src:$HOME/.dj/jars/* clojure.main $@
