@@ -4,7 +4,7 @@ GIT_IS_AVAILABLE=$?
 if [ $GIT_IS_AVAILABLE -eq 0 ]; then
 echo "Installing dj3 with git"
 pushd ~/
-git clone https://github.com/bmillare/dj3.git .dj
+git clone https://github.com/bmillare/dj3.git ~/.dj
 popd
 else
 echo "Installing dj3 from zip"
