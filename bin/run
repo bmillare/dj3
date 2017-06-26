@@ -3,25 +3,25 @@ git --version 2>&1 > /dev/null
 GIT_IS_AVAILABLE=$?
 if [ $GIT_IS_AVAILABLE -eq 0 ]; then
 echo "Installing dj3 with git"
-cd ~/.dj
+pushd ~/.dj
 git init
 git remote add origin https://github.com/bmillare/dj3.git
 git fetch
 git reset origin/master
 git checkout -t origin/master -f
-cd -
+popd
 else
 echo "Installing dj3 from zip"
-cd ~/.dj
+pushd ~/.dj
 curl https://github.com/bmillare/dj3/archive/master.zip | jar x
-cd -
+popd
 fi
 mkdir -p ~/.dj/jars
-cd ~/.dj/jars
+pushd ~/.dj/jars
 curl -O 'https://utz.icm.jhu.edu/~bmillar1/dj.project-0.3.5-standalone.jar'
 curl -O 'http://repo1.maven.org/maven2/org/clojure/clojure/1.9.0-alpha17/clojure-1.9.0-alpha17.jar'
 curl -O 'http://repo1.maven.org/maven2/org/clojure/spec.alpha/0.1.123/spec.alpha-0.1.123.jar'
 curl -O 'http://repo1.maven.org/maven2/org/clojure/core.specs.alpha/0.1.10/core.specs.alpha-0.1.10.jar'
-cd -
+popd
 fi
 java -cp $HOME/.dj/src:$HOME/.dj/jars/* clojure.main $@
