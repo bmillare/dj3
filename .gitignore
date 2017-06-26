@@ -1,4 +1,4 @@
 jars/
 usr/
-run
+./run
 .nrepl-port
