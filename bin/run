@@ -3,7 +3,11 @@ git --version 2>&1 > /dev/null
 GIT_IS_AVAILABLE=$?
 if [ $GIT_IS_AVAILABLE -eq 0 ]; then
 echo "Installing dj3 with git"
-git clone https://github.com/bmillare/dj3.git ~/.dj
+git init
+git remote add origin https://github.com/bmillare/dj3.git
+git fetch
+git reset origin/master
+git checkout -t origin/master
 else
 echo "Installing dj3 from zip"
 mkdir -p ~/.dj
