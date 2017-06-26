@@ -12,3 +12,7 @@ Second, to enable the use of complex applications that depends on multiple libra
 dj3 takes the main lessons learned from the first two iterations and simplifies it. dj3 plans to install itself within `$HOME/.dj` upon execution of any `clj` script that includes the special header. This header will self-install a dj3 distribution if it is not already installed. Once dj3 is installed, it will start Clojure by calling Java with a base set of jars and Clojure source code. Finally, it will run the originally executed `clj` file as Clojure code and supply any command line provided arguments.
 
 This approach generalizes to many use cases and enables initilization of complex standalone Clojure projects. One common technique would be to include an initialization script within a typical project directory that adds its source directories to the classpath, execute checks at run time, and start any project initialization code.
+
+# usage
+
+see `examples/helloworld.clj`. Add the special header at the top of a `clj` file that you want to execute, `chmod +x foo.clj` and then `./foo.clj`. The `clj` file should be executed from Clojure.
