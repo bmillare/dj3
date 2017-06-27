@@ -23,6 +23,8 @@ dj3 can work its scripting magic if Java, git (or alternatively unzip), and curl
 
 see `examples/helloworld.clj`. Add the special header at the top of a `clj` file that you want to execute, `chmod +x foo.clj` and then `./foo.clj`. The `clj` file should be executed from Clojure.
 
+see `examples/startcidernrepl.clj` on instructions for starting a cider nrepl server just by executing that `clj` file. You'll likely be surprised how little code is involved.
+
 # limitations
 
 Currently this only works on \*nix computers like OS X and Linux, not Windows. I'm not aware of a header that would be simultaneously compatible with both bash and batch scripts. Versions of Windows that have Windows Subsystem Linux should work because they can interpret bash.
