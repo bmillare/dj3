@@ -12,4 +12,6 @@
 (require '[clojure.tools.nrepl.server]
          '[cider.nrepl])
 
+(println "starting cider nrepl server on port 9000")
 (clojure.tools.nrepl.server/start-server :port 9000 :handler cider.nrepl/cider-nrepl-handler)
+(println "running cider nrepl server on port 9000")
