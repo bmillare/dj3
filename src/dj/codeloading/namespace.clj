@@ -29,6 +29,8 @@
       dc/find-resource
       ctnf/read-file-ns-decl))
 
+;; Note: In the future, might want to provide support for declaring
+;; additional maven repository locations
 (defn analyze-ns [ns-name]
   (let [raw-ns-form (find-ns-form ns-name)]
     {:dependent-namespaces (ctnp/deps-from-ns-decl raw-ns-form)
