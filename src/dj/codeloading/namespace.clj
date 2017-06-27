@@ -1,8 +1,8 @@
+(require 'dj.codeloading.maven)
 (try
   (clojure.core/require 'clojure.tools.namespace.file)
   (clojure.core/require 'clojure.tools.namespace.parse)
   (catch java.io.FileNotFoundException e
-    (require 'dj.codeloading.maven)
     (dj.codeloading.maven/load {:coordinates '[[org.clojure/tools.namespace "0.2.11" :exclusions [[org.clojure/clojure]]]]})))
 
 (ns
@@ -17,7 +17,8 @@
             [clojure.set :as cs]))
 
 (defn ns-name->repo-relative-path [n]
-  (str (dj/replace-map n {"." "/"})
+  (str (dj/replace-map n {"." "/"
+                          "-" "_"})
        ".clj"))
 
 (defn find-ns-form
@@ -59,7 +60,7 @@
                          (cs/difference dependent-namespaces
                                         ret-dependent-namespaces)))))))
 
-(defn load-ns
+(defn accommodate-ns
   "loads namespace with specified coordinates in the namespace
   metadata :dj.codeloading/dependencies and well as recursively for
   its dependent namespaces"
