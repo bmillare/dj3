@@ -23,6 +23,24 @@
       (.pack)
       (.setVisible true))))
 
+(defn view! [args]
+  (let [default {:title "Replace me!"}
+        {:keys [title svg-str]} (merge default args)]
+    (javax.swing.SwingUtilities/invokeLater
+     (fn []
+       (let [f (javax.swing.JFrame. title)
+             s (org.apache.batik.swing.JSVGCanvas.)
+             parser (org.apache.batik.util.XMLResourceDescriptor/getXMLParserClassName)
+             df (org.apache.batik.anim.dom.SAXSVGDocumentFactory. parser)
+             document (.createSVGDocument df "" (java.io.ByteArrayInputStream. (.getBytes svg-str
+                                                                                          java.nio.charset.StandardCharsets/UTF_8)))]
+         (.setSVGDocument s document)
+         (doto (.getContentPane f)
+           (.add s))
+         (doto f
+           (.pack)
+           (.setVisible true)))))))
+
 (defn new-svg-canvas []
   (org.apache.batik.swing.JSVGCanvas.))
 
@@ -54,6 +72,3 @@
                                               ""
                                               (java.io.ByteArrayInputStream. (.getBytes svg-str
                                                                                         java.nio.charset.StandardCharsets/UTF_8))))))))
-
-(defn main []
-  (javax.swing.SwingUtilities/invokeLater hello-world))
