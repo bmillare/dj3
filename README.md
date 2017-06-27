@@ -1,5 +1,5 @@
 # dj3
-Distribute Clojure apps as a single executable `clj` file. You simply add a special header to the top of any `clj` file and it will suddenly be executable.
+A reference template for distributing Clojure apps as a single executable `clj` file. You simply add a special header to the top of any `clj` file and it will suddenly be executable. (After `chmod +x the file.clj`). While this project is personally used extensively, the code is shared mainly as a proof of concept and reference design.
 
 # motivation in detail
 
@@ -26,3 +26,7 @@ see `examples/helloworld.clj`. Add the special header at the top of a `clj` file
 # limitations
 
 Currently this only works on \*nix computers like OS X and Linux, not Windows. I'm not aware of a header that would be simultaneously compatible with both bash and batch scripts. Versions of Windows that have Windows Subsystem Linux should work because they can interpret bash.
+
+The Clojure version is hard coded into the run script. A user/developer can easily change version of the Clojure jars located in `~/.dj/jars`.
+
+Arguments passed to java are hard coded.
