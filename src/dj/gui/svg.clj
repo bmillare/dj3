@@ -24,8 +24,10 @@
       (.setVisible true))))
 
 (defn view! [args]
-  (let [default {:title "Replace me!"}
-        {:keys [title svg-str]} (merge default args)]
+  (let [default {:title "Replace me!"
+                 :width 640
+                 :height 480}
+        {:keys [title svg-str width height]} (merge default args)]
     (javax.swing.SwingUtilities/invokeLater
      (fn []
        (let [f (javax.swing.JFrame. title)
@@ -38,6 +40,7 @@
          (doto (.getContentPane f)
            (.add s))
          (doto f
+           (.setPreferredSize (java.awt.Dimension. width height))
            (.pack)
            (.setVisible true)))))))
 
