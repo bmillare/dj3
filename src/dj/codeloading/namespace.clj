@@ -1,3 +1,8 @@
+;;; Concept
+;; - Add metadata to ns with dependency information
+;;   - See ns form in this file
+;; - Use (accommodate-ns 'foo-namespace) to grab dependencies
+
 (require 'dj.codeloading.maven)
 (try
   (clojure.core/require 'clojure.tools.namespace.file)
@@ -7,7 +12,7 @@
 
 (ns
     ^{:dj.codeloading/dependencies '[[org.clojure/tools.namespace "0.2.11"
-                                     :exclusions [[org.clojure/clojure]]]]}
+                                      :exclusions [[org.clojure/clojure]]]]}
     dj.codeloading.namespace
   (:require [dj]
             [dj.classloader :as dc]
