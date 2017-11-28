@@ -5,7 +5,7 @@
 
 (cp/add-dependencies
  :coordinates '[[refactor-nrepl "2.3.1"]
-                [cider/cider-nrepl "0.15.1"]]
+                [cider/cider-nrepl "0.16.0-SNAPSHOT"]]
  :repositories (merge a/maven-central
                       {"clojars" "https://clojars.org/repo"}))
 
