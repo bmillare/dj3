@@ -18,7 +18,7 @@ rm -rf ~/.dj.tmp
 fi
 mkdir -p ~/.dj/jars
 pushd ~/.dj/jars
-curl -Ok 'https://utz.icm.jhu.edu/~bmillar1/dj.project-0.3.5-standalone.jar'
+curl -Ok 'https://utz.icm.jhu.edu/~bmillar1/dj.project-1.0.0-standalone.jar'
 curl -O 'http://repo1.maven.org/maven2/org/clojure/clojure/1.9.0-alpha17/clojure-1.9.0-alpha17.jar'
 curl -O 'http://repo1.maven.org/maven2/org/clojure/spec.alpha/0.1.123/spec.alpha-0.1.123.jar'
 curl -O 'http://repo1.maven.org/maven2/org/clojure/core.specs.alpha/0.1.10/core.specs.alpha-0.1.10.jar'
