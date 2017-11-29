@@ -15,7 +15,7 @@
                                       :exclusions [[org.clojure/clojure]]]]}
     dj.codeloading.namespace
   (:require [dj]
-            [dj.classloader :as dc]
+            [dj.classreloader :as dc]
             [dj.codeloading.maven :as dcm]
             [clojure.tools.namespace.file :as ctnf]
             [clojure.tools.namespace.parse :as ctnp]
