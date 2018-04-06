@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 if [ ! -d "$HOME/.dj" ]; then
 git --version 2>&1 > /dev/null
 GIT_IS_AVAILABLE=$?
