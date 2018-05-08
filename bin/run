@@ -1,4 +1,8 @@
 #!/bin/sh
+DJP_URL='https://utz.icm.jhu.edu/~bmillar1/dj.project-1.0.1-standalone.jar'
+CLJ_URL='http://repo1.maven.org/maven2/org/clojure/clojure/1.9.0/clojure-1.9.0.jar'
+SPEC_URL='http://repo1.maven.org/maven2/org/clojure/spec.alpha/0.1.143/spec.alpha-0.1.143.jar'
+CSPEC_URL='http://repo1.maven.org/maven2/org/clojure/core.specs.alpha/0.1.24/core.specs.alpha-0.1.24.jar'
 if [ ! -d "$HOME/.dj" ]; then
 git --version 2>&1 > /dev/null
 GIT_IS_AVAILABLE=$?
@@ -19,10 +23,19 @@ rm -rf ~/.dj.tmp
 fi
 mkdir -p ~/.dj/jars
 cd ~/.dj/jars
-curl -Ok 'https://utz.icm.jhu.edu/~bmillar1/dj.project-1.0.1-standalone.jar'
-curl -O 'http://repo1.maven.org/maven2/org/clojure/clojure/1.9.0-alpha17/clojure-1.9.0-alpha17.jar'
-curl -O 'http://repo1.maven.org/maven2/org/clojure/spec.alpha/0.1.123/spec.alpha-0.1.123.jar'
-curl -O 'http://repo1.maven.org/maven2/org/clojure/core.specs.alpha/0.1.10/core.specs.alpha-0.1.10.jar'
+curl -Ok $DJP_URL
+curl -O $CLJ_URL
+curl -O $SPEC_URL
+curl -O $CSPEC_URL
 cd -
 fi
+if [ ! -d "$HOME/.dj/jars" ]; then
+mkdir -p ~/.dj/jars
+cd ~/.dj/jars
+curl -Ok $DJP_URL
+curl -O $CLJ_URL
+curl -O $SPEC_URL
+curl -O $CSPEC_URL
+cd -
+fi    
 java -cp $HOME/.dj/src:$HOME/.dj/usr/src:$HOME/.dj/jars/* clojure.main $@
