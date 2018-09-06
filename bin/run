@@ -38,4 +38,4 @@ curl -O $SPEC_URL
 curl -O $CSPEC_URL
 cd -
 fi    
-java -cp $HOME/.dj/src:$HOME/.dj/usr/src:$HOME/.dj/jars/* clojure.main $@
+java -cp $HOME/.dj/src:$HOME/.dj/usr/src:$HOME/.dj/jars/* clojure.main "$@"

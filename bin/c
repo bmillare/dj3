@@ -1,0 +1,12 @@
+":"; if [ ! -e "$HOME/.rundj" ]; then curl 'https://raw.githubusercontent.com/bmillare/dj3/master/bin/run' > $HOME/.rundj ; fi; exec sh ~/.rundj $0 "$@"
+(require '[v.1.scripting])
+(binding [*ns* (find-ns 'v.1.scripting)]
+  (when *command-line-args*
+   (let [farg (first *command-line-args*)]
+     (when-not (empty? farg)
+       (-> farg
+           read-string
+           eval
+           prn)))))
+    
+(shutdown-agents)
