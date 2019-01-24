@@ -1,6 +1,3 @@
-# issues
-due to old version pomegranate dependency, currently does not work with jdk9, will need to try updating pomegranate in the standalone jar to see if it fixes the issue
-
 # dj3
 A reference template for distributing Clojure apps as a single executable `clj` file. You simply add a special header to the top of any `clj` file and it will suddenly be executable. (After `chmod +x the file.clj`). While this project is personally used extensively, the code is shared mainly as a proof of concept and reference design.
 
