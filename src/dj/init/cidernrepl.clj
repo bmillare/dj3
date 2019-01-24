@@ -15,15 +15,16 @@
     :can-add? (constantly false)))
 
 (cp/add-dependencies
- :coordinates '[[refactor-nrepl "2.3.1"]
-                [cider/cider-nrepl "0.16.0-SNAPSHOT"]]
+ :coordinates '[[refactor-nrepl "2.4.0"]
+                [cider/cider-nrepl "0.20.0"]]
  :repositories (merge a/maven-central
                       {"clojars" "https://clojars.org/repo"}))
 
-(require '[clojure.tools.nrepl.server]
+(require '[nrepl.server]
          '[cider.nrepl])
 
 (let [port 9001]
   (println "starting cider nrepl server on port" port)
-  (clojure.tools.nrepl.server/start-server :port port :handler cider.nrepl/cider-nrepl-handler)
+  (nrepl.server/start-server
+   :port port :handler cider.nrepl/cider-nrepl-handler)
   (println "running cider nrepl server on port" port))
