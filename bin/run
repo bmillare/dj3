@@ -1,5 +1,5 @@
 #!/bin/sh
-DJP_URL='https://utz.icm.jhu.edu/~bmillar1/dj.project-1.0.1-standalone.jar'
+DJP_URL='https://github.com/bmillare/dj3/raw/master/bin/dj.project-1.0.1-standalone.jar'
 CLJ_URL='https://repo1.maven.org/maven2/org/clojure/clojure/1.10.0/clojure-1.10.0.jar'
 SPEC_URL='https://repo1.maven.org/maven2/org/clojure/spec.alpha/0.2.176/spec.alpha-0.2.176.jar'
 CSPEC_URL='https://repo1.maven.org/maven2/org/clojure/core.specs.alpha/0.2.44/core.specs.alpha-0.2.44.jar'
